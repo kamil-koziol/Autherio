@@ -2,7 +2,7 @@
 //  AutherioApp.swift
 //  Autherio
 //
-//  Created by Kamil Kozioł on 15/02/2022.
+//  Created by Kamil Kozioł on 02/10/2021.
 //
 
 import SwiftUI

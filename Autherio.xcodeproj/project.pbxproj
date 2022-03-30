@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34BD993327BBB09400870068 /* AutherioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD993227BBB09400870068 /* AutherioApp.swift */; };
-		34BD993527BBB09400870068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD993427BBB09400870068 /* ContentView.swift */; };
 		34BD993727BBB09600870068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993627BBB09600870068 /* Assets.xcassets */; };
 		34BD993A27BBB09600870068 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993927BBB09600870068 /* Preview Assets.xcassets */; };
+		34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994527BBB0C800870068 /* AutherioApp.swift */; };
+		34BD994827BBB0D800870068 /* TOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994727BBB0D800870068 /* TOTP.swift */; };
+		34BD994B27BBB0E000870068 /* QRCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994927BBB0E000870068 /* QRCoder.swift */; };
+		34BD994C27BBB0E000870068 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994A27BBB0E000870068 /* Base32.swift */; };
+		34BD994E27BBB0E900870068 /* TOTPListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994D27BBB0E900870068 /* TOTPListViewModel.swift */; };
+		34BD995327BBB0F200870068 /* TOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994F27BBB0F200870068 /* TOTPView.swift */; };
+		34BD995427BBB0F200870068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995027BBB0F200870068 /* ContentView.swift */; };
+		34BD995527BBB0F200870068 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995127BBB0F200870068 /* CodeScannerView.swift */; };
+		34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995227BBB0F200870068 /* TOTPListView.swift */; };
+		34BD995927BBB2E500870068 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995827BBB2E500870068 /* URLExtensions.swift */; };
+		34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995A27BBC96D00870068 /* CreateTOTPView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34BD992F27BBB09400870068 /* Autherio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autherio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		34BD993227BBB09400870068 /* AutherioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutherioApp.swift; sourceTree = "<group>"; };
-		34BD993427BBB09400870068 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34BD993627BBB09600870068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BD993927BBB09600870068 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34BD994527BBB0C800870068 /* AutherioApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutherioApp.swift; sourceTree = "<group>"; };
+		34BD994727BBB0D800870068 /* TOTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTP.swift; sourceTree = "<group>"; };
+		34BD994927BBB0E000870068 /* QRCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCoder.swift; sourceTree = "<group>"; };
+		34BD994A27BBB0E000870068 /* Base32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base32.swift; sourceTree = "<group>"; };
+		34BD994D27BBB0E900870068 /* TOTPListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPListViewModel.swift; sourceTree = "<group>"; };
+		34BD994F27BBB0F200870068 /* TOTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPView.swift; sourceTree = "<group>"; };
+		34BD995027BBB0F200870068 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		34BD995127BBB0F200870068 /* CodeScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		34BD995227BBB0F200870068 /* TOTPListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPListView.swift; sourceTree = "<group>"; };
+		34BD995827BBB2E500870068 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
+		34BD995A27BBC96D00870068 /* CreateTOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTOTPView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +69,12 @@
 		34BD993127BBB09400870068 /* Autherio */ = {
 			isa = PBXGroup;
 			children = (
-				34BD993227BBB09400870068 /* AutherioApp.swift */,
-				34BD993427BBB09400870068 /* ContentView.swift */,
+				34BD995727BBB2D300870068 /* Extensions */,
+				34BD994427BBB0B800870068 /* Utils */,
+				34BD994327BBB0B300870068 /* Views */,
+				34BD994227BBB0AB00870068 /* Models */,
+				34BD994127BBB0A500870068 /* ViewModels */,
+				34BD994027BBB0A000870068 /* App */,
 				34BD993627BBB09600870068 /* Assets.xcassets */,
 				34BD993827BBB09600870068 /* Preview Content */,
 			);
@@ -65,6 +87,59 @@
 				34BD993927BBB09600870068 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		34BD994027BBB0A000870068 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				34BD994527BBB0C800870068 /* AutherioApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		34BD994127BBB0A500870068 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				34BD994D27BBB0E900870068 /* TOTPListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		34BD994227BBB0AB00870068 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34BD994727BBB0D800870068 /* TOTP.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34BD994327BBB0B300870068 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34BD995127BBB0F200870068 /* CodeScannerView.swift */,
+				34BD995027BBB0F200870068 /* ContentView.swift */,
+				34BD995227BBB0F200870068 /* TOTPListView.swift */,
+				34BD994F27BBB0F200870068 /* TOTPView.swift */,
+				34BD995A27BBC96D00870068 /* CreateTOTPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34BD994427BBB0B800870068 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				34BD994A27BBB0E000870068 /* Base32.swift */,
+				34BD994927BBB0E000870068 /* QRCoder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		34BD995727BBB2D300870068 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				34BD995827BBB2E500870068 /* URLExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +212,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34BD993527BBB09400870068 /* ContentView.swift in Sources */,
-				34BD993327BBB09400870068 /* AutherioApp.swift in Sources */,
+				34BD995527BBB0F200870068 /* CodeScannerView.swift in Sources */,
+				34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */,
+				34BD994827BBB0D800870068 /* TOTP.swift in Sources */,
+				34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */,
+				34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */,
+				34BD995427BBB0F200870068 /* ContentView.swift in Sources */,
+				34BD994B27BBB0E000870068 /* QRCoder.swift in Sources */,
+				34BD995327BBB0F200870068 /* TOTPView.swift in Sources */,
+				34BD995927BBB2E500870068 /* URLExtensions.swift in Sources */,
+				34BD994E27BBB0E900870068 /* TOTPListViewModel.swift in Sources */,
+				34BD994C27BBB0E000870068 /* Base32.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
