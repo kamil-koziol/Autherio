@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TOTPListView: View {
     @ObservedObject var model = TOTPListViewModel()
-    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common)
     @State var counter: Int = 0
     @Binding var isShowingScanner: Bool;
     @Binding var isShowingAdd: Bool;
@@ -17,20 +17,23 @@ struct TOTPListView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(model.list) { totp in
-                if(search == "" || totp.issuer.contains(search) || totp.mail.contains(search)) {
-                    TOTPView(totp: totp, counter: $counter)
-                        .padding(.horizontal)
+                ForEach(model.list) { totp in
+                    if(search == "" || totp.issuer.contains(search) || totp.mail.contains(search)) {
+                        TOTPListItemView(totp: totp, timer: $timer)
+                            .padding(.horizontal)
+                    }
                 }
-            }
             .searchable(text: $search)
         }
+        .onAppear(perform: {
+            timer.connect()
+        })
         .onReceive(timer, perform: { _ in
-            counter = TOTP.getCounter(period: 30);
+            counter = TOTP.getCounter(period: TOTP.DEFAULT_PERIOD);
         })
         
         .sheet(isPresented: $isShowingScanner) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: "otpauth://totp/Test?secret=JBSWY3DPEHPK3PXP&issuer=Apple", completion: self.handleScan)
+            CodeScannerView(codeTypes: [.qr], simulatedData: TOTP.getRandom().getURL().path, completion: self.handleScan)
         }
         
         .sheet(isPresented: $isShowingAdd) {

@@ -16,6 +16,8 @@ class TOTP: Codable, Identifiable, ObservableObject {
     @Published var mail: String
     @Published var digits: Int
     @Published var period: Int
+    static let DEFAULT_DIGITS: Int = 6
+    static let DEFAULT_PERIOD: Int = 30
     
     init(secretKey: String, issuer: String, mail: String, digits: Int, period: Int) {
         self.secretKey = secretKey
@@ -30,7 +32,7 @@ class TOTP: Codable, Identifiable, ObservableObject {
     }
     
     convenience init(secretKey: String, issuer: String, mail: String) {
-        self.init(secretKey: secretKey, issuer: issuer, mail: mail, digits: 6, period: 30)
+        self.init(secretKey: secretKey, issuer: issuer, mail: mail, digits: Self.DEFAULT_DIGITS, period: Self.DEFAULT_PERIOD)
     }
     
     func getCode() -> String {
@@ -106,6 +108,11 @@ class TOTP: Codable, Identifiable, ObservableObject {
             key += base32characters.randomElement()!
         }
         return key
+    }
+    
+    static func getRandom() -> TOTP {
+        let totp: TOTP = TOTP(secretKey: getRandomSecretKey(), issuer: "Apple", mail: "example@apple.com", digits: Self.DEFAULT_DIGITS, period: Self.DEFAULT_PERIOD)
+        return totp
     }
     
     // Codable

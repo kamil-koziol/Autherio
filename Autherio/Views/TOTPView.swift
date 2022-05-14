@@ -19,29 +19,27 @@ struct TOTPView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(totp.issuer)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.white)
                             .font(.title)
                         
                         
-                        if !showCode {
-                            Button("Show code") {
-                                showCode.toggle()
-                            }
+                        if showCode {
+                            Text(totp.getCode())
+                                .foregroundColor(Color.white)
                         }
                         
                         else {
-                            Text(totp.getCode())
-                                .foregroundColor(Color.black)
+                            Text(" ")
                         }
                         
                         
                     }
                     Spacer()
                     Button(action: {
-                        UIPasteboard.general.string = totp.getCode()
+                        showCode.toggle()
                     }, label: {
-                        Image(systemName: "doc.on.doc")
-                            .foregroundColor(Color.black)
+                        Image(systemName: "eye.square.fill")
+                            .foregroundColor(Color.blue)
                             .font(.title)
                     })
                 }
@@ -51,7 +49,7 @@ struct TOTPView: View {
             }
         }
         .padding(40)
-        .background(colorScheme == .dark ? Color.gray: Color.white)
+        .background(colorScheme == .dark ? Color.gray: Color.ui.dark_accent)
         .cornerRadius(10)
         .shadow(radius: 1)
         

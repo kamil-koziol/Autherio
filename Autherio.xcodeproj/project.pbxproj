@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3490FC2B282EAC87007A8CAC /* TOTPListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */; };
+		3490FC2D282EAFA5007A8CAC /* TOTPCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */; };
+		3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */; };
+		34AA0AEC28215CF600F9F3D7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA0AEB28215CF600F9F3D7 /* ColorExtensions.swift */; };
 		34BD993727BBB09600870068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993627BBB09600870068 /* Assets.xcassets */; };
 		34BD993A27BBB09600870068 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993927BBB09600870068 /* Preview Assets.xcassets */; };
 		34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994527BBB0C800870068 /* AutherioApp.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPListItemView.swift; sourceTree = "<group>"; };
+		3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPCounterView.swift; sourceTree = "<group>"; };
+		3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPDetailsView.swift; sourceTree = "<group>"; };
+		34AA0AEB28215CF600F9F3D7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		34BD992F27BBB09400870068 /* Autherio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autherio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BD993627BBB09600870068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BD993927BBB09600870068 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -121,6 +129,9 @@
 				34BD995227BBB0F200870068 /* TOTPListView.swift */,
 				34BD994F27BBB0F200870068 /* TOTPView.swift */,
 				34BD995A27BBC96D00870068 /* CreateTOTPView.swift */,
+				3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */,
+				3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */,
+				3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				34BD995827BBB2E500870068 /* URLExtensions.swift */,
+				34AA0AEB28215CF600F9F3D7 /* ColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +227,7 @@
 				34BD995527BBB0F200870068 /* CodeScannerView.swift in Sources */,
 				34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */,
 				34BD994827BBB0D800870068 /* TOTP.swift in Sources */,
+				3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */,
 				34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */,
 				34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */,
 				34BD995427BBB0F200870068 /* ContentView.swift in Sources */,
@@ -222,7 +235,10 @@
 				34BD995327BBB0F200870068 /* TOTPView.swift in Sources */,
 				34BD995927BBB2E500870068 /* URLExtensions.swift in Sources */,
 				34BD994E27BBB0E900870068 /* TOTPListViewModel.swift in Sources */,
+				3490FC2D282EAFA5007A8CAC /* TOTPCounterView.swift in Sources */,
 				34BD994C27BBB0E000870068 /* Base32.swift in Sources */,
+				3490FC2B282EAC87007A8CAC /* TOTPListItemView.swift in Sources */,
+				34AA0AEC28215CF600F9F3D7 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +375,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -388,6 +405,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
