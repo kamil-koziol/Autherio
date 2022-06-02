@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348CAF8D28496EE600E33934 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CAF8C28496EE600E33934 /* QRView.swift */; };
+		348CAF90284977A800E33934 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 348CAF8F284977A800E33934 /* CodeScanner */; };
 		3490FC2B282EAC87007A8CAC /* TOTPListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */; };
 		3490FC2D282EAFA5007A8CAC /* TOTPCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */; };
 		3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */; };
@@ -20,13 +22,13 @@
 		34BD994E27BBB0E900870068 /* TOTPListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994D27BBB0E900870068 /* TOTPListViewModel.swift */; };
 		34BD995327BBB0F200870068 /* TOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD994F27BBB0F200870068 /* TOTPView.swift */; };
 		34BD995427BBB0F200870068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995027BBB0F200870068 /* ContentView.swift */; };
-		34BD995527BBB0F200870068 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995127BBB0F200870068 /* CodeScannerView.swift */; };
 		34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995227BBB0F200870068 /* TOTPListView.swift */; };
 		34BD995927BBB2E500870068 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995827BBB2E500870068 /* URLExtensions.swift */; };
 		34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD995A27BBC96D00870068 /* CreateTOTPView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		348CAF8C28496EE600E33934 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPListItemView.swift; sourceTree = "<group>"; };
 		3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPCounterView.swift; sourceTree = "<group>"; };
 		3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPDetailsView.swift; sourceTree = "<group>"; };
@@ -41,7 +43,6 @@
 		34BD994D27BBB0E900870068 /* TOTPListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPListViewModel.swift; sourceTree = "<group>"; };
 		34BD994F27BBB0F200870068 /* TOTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPView.swift; sourceTree = "<group>"; };
 		34BD995027BBB0F200870068 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		34BD995127BBB0F200870068 /* CodeScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
 		34BD995227BBB0F200870068 /* TOTPListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPListView.swift; sourceTree = "<group>"; };
 		34BD995827BBB2E500870068 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		34BD995A27BBC96D00870068 /* CreateTOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTOTPView.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348CAF90284977A800E33934 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +126,6 @@
 		34BD994327BBB0B300870068 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				34BD995127BBB0F200870068 /* CodeScannerView.swift */,
 				34BD995027BBB0F200870068 /* ContentView.swift */,
 				34BD995227BBB0F200870068 /* TOTPListView.swift */,
 				34BD994F27BBB0F200870068 /* TOTPView.swift */,
@@ -132,6 +133,7 @@
 				3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */,
 				3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */,
 				3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */,
+				348CAF8C28496EE600E33934 /* QRView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +172,9 @@
 			dependencies = (
 			);
 			name = Autherio;
+			packageProductDependencies = (
+				348CAF8F284977A800E33934 /* CodeScanner */,
+			);
 			productName = Autherio;
 			productReference = 34BD992F27BBB09400870068 /* Autherio.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +203,9 @@
 				Base,
 			);
 			mainGroup = 34BD992627BBB09400870068;
+			packageReferences = (
+				348CAF8E284977A800E33934 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 34BD993027BBB09400870068 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,11 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34BD995527BBB0F200870068 /* CodeScannerView.swift in Sources */,
 				34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */,
 				34BD994827BBB0D800870068 /* TOTP.swift in Sources */,
 				3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */,
 				34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */,
+				348CAF8D28496EE600E33934 /* QRView.swift in Sources */,
 				34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */,
 				34BD995427BBB0F200870068 /* ContentView.swift in Sources */,
 				34BD994B27BBB0E000870068 /* QRCoder.swift in Sources */,
@@ -372,6 +380,7 @@
 				DEVELOPMENT_TEAM = 9474P7K7Z8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -402,6 +411,7 @@
 				DEVELOPMENT_TEAM = 9474P7K7Z8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,6 +453,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		348CAF8E284977A800E33934 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:twostraws/CodeScanner.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		348CAF8F284977A800E33934 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 348CAF8E284977A800E33934 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34BD992727BBB09400870068 /* Project object */;
 }

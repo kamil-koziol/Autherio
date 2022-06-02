@@ -6,34 +6,41 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct TOTPListView: View {
     @ObservedObject var model = TOTPListViewModel()
     @State var timer = Timer.publish(every: 1, on: .main, in: .common)
     @State var counter: Int = 0
-    @Binding var isShowingScanner: Bool;
-    @Binding var isShowingAdd: Bool;
+    @Binding var isShowingScanner: Bool
+    @Binding var isShowingAdd: Bool
     @State var search: String = ""
     
     var body: some View {
-        ScrollView {
-                ForEach(model.list) { totp in
-                    if(search == "" || totp.issuer.contains(search) || totp.mail.contains(search)) {
-                        TOTPListItemView(totp: totp, timer: $timer)
-                            .padding(.horizontal)
+            ScrollView {
+                    ForEach(model.list) { totp in
+                        if(search == "" || totp.issuer.contains(search) || totp.mail.contains(search)) {
+                            NavigationLink(destination: {
+                                TOTPView(totp: totp, timer: $timer)
+                            }, label: {
+                                TOTPListItemView(totp: totp, timer: $timer)
+                                    .padding(.horizontal)
+                            })
+                        }
                     }
-                }
-            .searchable(text: $search)
-        }
+                .searchable(text: $search)
+            }
+        
         .onAppear(perform: {
             timer.connect()
         })
         .onReceive(timer, perform: { _ in
             counter = TOTP.getCounter(period: TOTP.DEFAULT_PERIOD);
         })
+    
         
         .sheet(isPresented: $isShowingScanner) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: TOTP.getRandom().getURL().path, completion: self.handleScan)
+            CodeScannerView(codeTypes: [.qr], simulatedData: TOTP.getRandom().getURL().absoluteString, completion: self.handleScan)
         }
         
         .sheet(isPresented: $isShowingAdd) {
@@ -44,10 +51,10 @@ struct TOTPListView: View {
         }
     }
     
-    func handleScan(result: Result<String, CodeScannerView.ScanError>) {
-        self.isShowingScanner = false
+    func handleScan(result: Result<ScanResult, ScanError>) {
         switch result {
-        case .success(let code):
+        case .success(let result):
+            var code = result.string
             if !code.starts(with: "otpauth") { return }
             let url = URL(string: code)!
             let totp = TOTP.parseURL(url: url)
@@ -57,11 +64,5 @@ struct TOTPListView: View {
             print("Scanning failed")
             print(error)
         }
-    }
-}
-
-struct TOTPListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TOTPListView(isShowingScanner: Binding.constant(false), isShowingAdd: Binding.constant(false))
     }
 }

@@ -19,7 +19,7 @@ struct TOTPListItemView: View {
         ZStack() {
             VStack(alignment: .leading) {
                 Text(totp.issuer)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(colorScheme == .dark ? Color.white: Color(UIColor.black))
                     .font(.title)
                     .fontWeight(.semibold)
                 
@@ -38,7 +38,7 @@ struct TOTPListItemView: View {
             counter = TOTP.getCounter(period: totp.period);
         })
         .padding(30)
-        .background(colorScheme == .dark ? Color(UIColor.systemGray6): Color(UIColor.label))
+        .background(Color(UIColor.systemGray6))
         .cornerRadius(10)
 //        .overlay(
 //                    RoundedRectangle(cornerRadius: 10)

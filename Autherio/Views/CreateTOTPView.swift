@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateTOTPView: View {
     
-    @ObservedObject var totp = TOTP(secretKey: "")
+    @ObservedObject var totp = TOTP(secretKey: "", issuer: "", mail: "")
     public var completion: (TOTP) -> Void
     
     init(completion: @escaping (TOTP) -> Void = {_ in }) {
@@ -57,6 +57,7 @@ struct CreateTOTPView: View {
             }, label: {
                 Text("Add")
             })
+            .disabled(totp.mail.isEmpty || totp.issuer.isEmpty || totp.secretKey.isEmpty)
         }
         .navigationTitle("Add new TOTP")
     }
