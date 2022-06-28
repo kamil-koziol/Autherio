@@ -54,15 +54,24 @@ struct TOTPListView: View {
     func handleScan(result: Result<ScanResult, ScanError>) {
         switch result {
         case .success(let result):
-            var code = result.string
-            if !code.starts(with: "otpauth") { return }
-            let url = URL(string: code)!
+            guard let url = URL(string: result.string) else {
+                isShowingScanner = false
+                return
+            }
+
+            if(!TOTP.isURLValid(url: url)) {
+                isShowingScanner = false
+                return
+            }
+            
             let totp = TOTP.parseURL(url: url)
             model.add(totp: totp)
+            isShowingScanner = false
             
         case .failure(let error):
             print("Scanning failed")
             print(error)
+            isShowingScanner = false
         }
     }
 }

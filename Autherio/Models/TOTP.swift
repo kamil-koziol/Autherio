@@ -19,6 +19,9 @@ class TOTP: Codable, Identifiable, ObservableObject {
     static let DEFAULT_DIGITS: Int = 6
     static let DEFAULT_PERIOD: Int = 30
     
+    static let URL_SCHEME = "otpauth"
+    static let URL_HOST = "totp"
+    
     init(secretKey: String, issuer: String, mail: String, digits: Int, period: Int) {
         self.secretKey = secretKey
         self.issuer = issuer
@@ -35,18 +38,6 @@ class TOTP: Codable, Identifiable, ObservableObject {
         self.init(secretKey: secretKey, issuer: issuer, mail: mail, digits: Self.DEFAULT_DIGITS, period: Self.DEFAULT_PERIOD)
     }
     
-    func getCode() -> String {
-        var counter: UInt64 = UInt64(Date().timeIntervalSince1970 / TimeInterval(period)).bigEndian;
-        let secret = base32DecodeToData(secretKey)!
-        let counterData = withUnsafeBytes(of: &counter) { Array($0) }
-        let hash = HMAC<Insecure.SHA1>.authenticationCode(for: counterData, using: SymmetricKey(data: secret))
-        return truncateHash(hash: hash)
-    }
-    
-    func validate(code: String) -> Bool {
-        return getCode() == code;
-    }
-    
     private func truncateHash(hash: HashedAuthenticationCode<Insecure.SHA1>) -> String {
         var truncatedHash = hash.withUnsafeBytes { ptr -> UInt32 in
             let offset = ptr[hash.byteCount - 1] & 0x0f
@@ -61,6 +52,19 @@ class TOTP: Codable, Identifiable, ObservableObject {
         
         return String(format: "%0\(digits)d", truncatedHash)
     }
+    
+    func getCode() -> String {
+        var counter: UInt64 = UInt64(Date().timeIntervalSince1970 / TimeInterval(period)).bigEndian;
+        let secret = base32DecodeToData(secretKey)!
+        let counterData = withUnsafeBytes(of: &counter) { Array($0) }
+        let hash = HMAC<Insecure.SHA1>.authenticationCode(for: counterData, using: SymmetricKey(data: secret))
+        return truncateHash(hash: hash)
+    }
+    
+    func validate(code: String) -> Bool {
+        return getCode() == code;
+    }
+    
     private func escapeString(from str: String) -> String {
         return str.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)!
     }
@@ -68,8 +72,8 @@ class TOTP: Codable, Identifiable, ObservableObject {
     func getURL() -> URL {
         // https://github.com/google/google-authenticator/wiki/Key-Uri-Format
         var components = URLComponents()
-        components.scheme = "otpauth"
-        components.host = "totp"
+        components.scheme = TOTP.URL_SCHEME
+        components.host = TOTP.URL_HOST
         components.path = "/\(issuer):\(mail)"
         
         components.queryItems = [
@@ -113,6 +117,19 @@ class TOTP: Codable, Identifiable, ObservableObject {
     static func getRandom() -> TOTP {
         let totp: TOTP = TOTP(secretKey: getRandomSecretKey(), issuer: "Apple", mail: "example@apple.com", digits: Self.DEFAULT_DIGITS, period: Self.DEFAULT_PERIOD)
         return totp
+    }
+    
+    static func isURLValid(url: URL) -> Bool {
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        if(components?.scheme != TOTP.URL_SCHEME) {
+            return false
+        }
+        if(components?.host != TOTP.URL_HOST) {
+            return false
+        }
+        
+        // TODO: check for good components
+        return true
     }
     
     // Codable
