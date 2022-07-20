@@ -18,10 +18,13 @@ struct TOTPListView: View {
     
     var body: some View {
             ScrollView {
-                    ForEach(model.list) { totp in
+                ForEach(model.list.reversed()) { totp in
                         if(search == "" || totp.issuer.contains(search) || totp.mail.contains(search)) {
                             NavigationLink(destination: {
                                 TOTPView(totp: totp, timer: $timer)
+                                    .onItemRemove {
+                                        model.remove(totp: totp)
+                                    }
                             }, label: {
                                 TOTPListItemView(totp: totp, timer: $timer)
                                     .padding(.horizontal)
@@ -49,6 +52,10 @@ struct TOTPListView: View {
                 isShowingAdd = false;
             })
         }
+    }
+    
+    func onRemove(_ totp: TOTP) {
+        model.remove(totp: totp)
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {

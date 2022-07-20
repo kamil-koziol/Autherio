@@ -10,17 +10,12 @@ import UIKit
 import CryptoKit
 
 
-class TOTP: Codable, Identifiable, ObservableObject {
+class TOTP: Identifiable, ObservableObject {
     @Published var secretKey: String
     @Published var issuer: String
     @Published var mail: String
     @Published var digits: Int
     @Published var period: Int
-    static let DEFAULT_DIGITS: Int = 6
-    static let DEFAULT_PERIOD: Int = 30
-    
-    static let URL_SCHEME = "otpauth"
-    static let URL_HOST = "totp"
     
     init(secretKey: String, issuer: String, mail: String, digits: Int, period: Int) {
         self.secretKey = secretKey
@@ -132,17 +127,6 @@ class TOTP: Codable, Identifiable, ObservableObject {
         return true
     }
     
-    // Codable
-    
-    
-    enum CodingKeys: CodingKey {
-        case secretKey
-        case issuer
-        case mail
-        case digits
-        case period
-    }
-    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         secretKey = try container.decode(String.self, forKey: .secretKey)
@@ -151,7 +135,31 @@ class TOTP: Codable, Identifiable, ObservableObject {
         digits = try container.decode(Int.self, forKey: .digits)
         period = try container.decode(Int.self, forKey: .period)
     }
+}
 
+// Constants
+extension TOTP {
+    static let DEFAULT_DIGITS: Int = 6
+    static let DEFAULT_PERIOD: Int = 30
+    
+    static let URL_SCHEME = "otpauth"
+    static let URL_HOST = "totp"
+}
+
+extension TOTP: Equatable {
+    static func == (lhs: TOTP, rhs: TOTP) -> Bool {
+        return lhs.issuer == rhs.issuer && lhs.secretKey == rhs.secretKey && lhs.mail == rhs.mail && lhs.digits == rhs.digits && lhs.period == rhs.period
+    }
+}
+
+extension TOTP: Codable {
+    enum CodingKeys: CodingKey {
+        case secretKey
+        case issuer
+        case mail
+        case digits
+        case period
+    }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -163,9 +171,6 @@ class TOTP: Codable, Identifiable, ObservableObject {
     
     }
 }
-
-
-
 
 
 

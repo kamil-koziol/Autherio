@@ -9,9 +9,10 @@ import Foundation
 
 class TOTPListViewModel: ObservableObject {
     @Published private(set) var list: [TOTP]
+    public static var key: String = "totps"
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: "totps") {
+        if let data = UserDefaults.standard.data(forKey: TOTPListViewModel.key) {
             if let decoded = try? JSONDecoder().decode([TOTP].self, from: data) {
                 self.list = decoded
                 return
@@ -23,8 +24,17 @@ class TOTPListViewModel: ObservableObject {
     
     func save() {
         if let encoded = try? JSONEncoder().encode(list) {
-            UserDefaults.standard.set(encoded, forKey: "totps")
+            UserDefaults.standard.set(encoded, forKey: TOTPListViewModel.key)
         }
+    }
+    
+    func remove(totp: TOTP) {
+        if let index = list.firstIndex(of: totp) {
+            list.remove(at: index)
+            self.save()
+        }
+        
+        return
     }
     
     func add(totp: TOTP) {

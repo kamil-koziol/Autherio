@@ -11,7 +11,6 @@
 		348CAF90284977A800E33934 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 348CAF8F284977A800E33934 /* CodeScanner */; };
 		3490FC2B282EAC87007A8CAC /* TOTPListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */; };
 		3490FC2D282EAFA5007A8CAC /* TOTPCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */; };
-		3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */; };
 		34AA0AEC28215CF600F9F3D7 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA0AEB28215CF600F9F3D7 /* ColorExtensions.swift */; };
 		34BD993727BBB09600870068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993627BBB09600870068 /* Assets.xcassets */; };
 		34BD993A27BBB09600870068 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BD993927BBB09600870068 /* Preview Assets.xcassets */; };
@@ -31,7 +30,6 @@
 		348CAF8C28496EE600E33934 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPListItemView.swift; sourceTree = "<group>"; };
 		3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPCounterView.swift; sourceTree = "<group>"; };
-		3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPDetailsView.swift; sourceTree = "<group>"; };
 		34AA0AEB28215CF600F9F3D7 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		34BD992F27BBB09400870068 /* Autherio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autherio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BD993627BBB09600870068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				34BD995A27BBC96D00870068 /* CreateTOTPView.swift */,
 				3490FC2A282EAC87007A8CAC /* TOTPListItemView.swift */,
 				3490FC2C282EAFA5007A8CAC /* TOTPCounterView.swift */,
-				3490FC2E282EEC2C007A8CAC /* TOTPDetailsView.swift */,
 				348CAF8C28496EE600E33934 /* QRView.swift */,
 			);
 			path = Views;
@@ -234,7 +231,6 @@
 			files = (
 				34BD995B27BBC96D00870068 /* CreateTOTPView.swift in Sources */,
 				34BD994827BBB0D800870068 /* TOTP.swift in Sources */,
-				3490FC2F282EEC2C007A8CAC /* TOTPDetailsView.swift in Sources */,
 				34BD995627BBB0F200870068 /* TOTPListView.swift in Sources */,
 				348CAF8D28496EE600E33934 /* QRView.swift in Sources */,
 				34BD994627BBB0C800870068 /* AutherioApp.swift in Sources */,

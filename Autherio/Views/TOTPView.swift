@@ -14,6 +14,12 @@ struct TOTPView: View {
     @Binding var timer: Timer.TimerPublisher
     @State var counter = 0
     @State var isShowingQR: Bool = false;
+    
+    var onItemRemove: (() -> Void)?
+    
+    @State private var isPresentingConfirm: Bool = false
+
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -83,6 +89,17 @@ struct TOTPView: View {
                     }, label: {
                         Text("Generate QR Code")
                     })
+                    
+                    
+                    Button("Remove", role: .destructive) {
+                        isPresentingConfirm = true
+                    }
+                    .confirmationDialog("Are you sure?",
+                         isPresented: $isPresentingConfirm) {
+                         Button("Remove", role: .destructive) {
+                             self.onItemRemove?()
+                          }
+                        }
                 }
             }
             .onAppear() {
@@ -95,5 +112,11 @@ struct TOTPView: View {
                 QRView(qr: QRCoder.generate(from: totp.getURL()), qr_url: totp.getURL().absoluteString)
             }
         
+    }
+}
+
+extension TOTPView {
+    func onItemRemove(action: @escaping (() -> Void)) -> TOTPView {
+        TOTPView(totp: totp, timer: $timer, onItemRemove: action)
     }
 }
