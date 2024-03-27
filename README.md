@@ -8,7 +8,7 @@ iOS application for creating, managing and scanning TOTP codes for 2FA
 
 ## Dark Theme
 
-![Image](./assets/showcase.png)
+![Image](./assets/dark.png)
 
 ## View Item
 
