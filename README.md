@@ -28,4 +28,4 @@ iOS application for creating, managing and scanning TOTP codes for 2FA
 
 ## Scanning code
 
-![Image](./assets/scan.png)
+![Image](./assets/scann.png)
